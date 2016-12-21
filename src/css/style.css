@@ -1,0 +1,61 @@
+
+html {
+    /* Taken from bootstrap sticky footer example */
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    padding-top: 40px;
+    font-family: 'Poiret One', cursive;
+}
+
+#search-container label {
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    align-items: center;
+}
+
+#search-container span {
+    width: 2%;
+    font-size: 1.7em;
+}
+
+#search-container input {
+    display: inline-block;
+    width: 97%;
+    box-sizing: border-box;
+    height: 40px;
+    border: none;
+    padding: 0 10px;
+    background: none;
+    color: rgba(188,188,188,0.7);
+    border-bottom: 1px solid rgba(188,188,188,0.7);
+    box-shadow: none;
+}
+
+#search-container input:focus {
+    webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(0,0,0,0.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(0,0,0,0.6);
+}
+
+a:hover, a:visited, a:focus, a:active {
+    text-decoration: none;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here, must equal margin-bottom of         body */
+    height: 50px;
+    /* Set to match the main theme */
+    background-color: #222222;
+    border-color: #121212;
+    color: #fff;
+}
+
+footer p {
+    margin: 14.5px 0;
+}

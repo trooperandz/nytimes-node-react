@@ -1,0 +1,44 @@
+/* Styling upgrade notes */
+navbar: background-color: #b25414;
+
+jumbotron: (remove .col)
+    <div class="row">
+        <div>
+            <div class="jumbotron text-center">
+                <div id="app"><h1 data-reactid=".0">News Search</h1></div>
+                <p>Get all your news here. Powered by <span class="text-info">ReactJS.</span></p>
+            </div>
+        </div>
+    </div>
+
+/* Make sure jumbotron is flush with navbar */
+body {
+    padding-top: 40px;
+}
+
+/* New search input */
+<div class="row">
+    <div>
+        <div class="well" style="padding-top: 10px;">
+            <label style="
+                display: flex;
+                justify-content: space-around;
+                align-content: center;
+                align-items: center;
+            ">
+              <span class="glyphicon glyphicon-search" style="width: 2%; font-size: 1.7em;"></span>
+              <input placeholder="Search for something interesting..." style="
+                  display: inline-block;
+                  width: 97%;
+                  box-sizing: border-box;
+                  height: 40px;
+                  border: none;
+                  padding: 0 10px;
+                  background: none;
+                  border-bottom: 2px solid rgba(188,188,188,0.7);
+              ">
+            </label>
+        </div>
+    </div>
+</div>
+
