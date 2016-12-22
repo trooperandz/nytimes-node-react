@@ -23,7 +23,6 @@ export default class Nav extends React.Component {
         // Provide class names for active class instantiation
         const latestClass = location.pathname.match(/^\/latest/) ? 'active' : '';
         const mynewsClass = location.pathname.match(/^\/mynews/) ? 'active' : '';
-        //const searchClass = location.pathname.match(/^\/search/) ? 'active' : '';
         const searchClass = location.pathname === '/' ? 'active' : '';
         const settingsClass = location.pathname.match(/^\/settings/) ? 'active' : '';
         const navClass = collapsed ? 'collapse' : '';
@@ -60,5 +59,4 @@ export default class Nav extends React.Component {
             </nav>
         );
     }
-    //<div id="navbar" class="collapse navbar-collapse navbar-right">
 }

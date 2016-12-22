@@ -1,13 +1,14 @@
 import React from 'react';
 
 import Article from '../components/Article';
-import ArticleStore from '../stores/ArticleStore';
+import SearchActions from '../actions/SearchActions';
+import SearchStore from '../stores/SearchStore';
 
 export default class Search extends React.Component {
     constructor() {
         super()
         this.state = {
-            articles: ArticleStore.getAll(),
+            articles: [],
         }
     }
 

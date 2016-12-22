@@ -1,13 +1,14 @@
 import React from 'react';
 
 import Article from '../components/Article';
-import ArticleStore from '../stores/ArticleStore';
+import MyNewsActions from '../actions/MyNewsActions';
+import MyNewsStore from '../stores/MyNewsStore';
 
 export default class MyNews extends React.Component {
     constructor() {
         super();
         this.state = {
-            articles: ArticleStore.getAll(),
+            articles: MyNewsStore.getFavorites(),
         };
     }
 
