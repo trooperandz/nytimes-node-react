@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import Article from '../components/Article';
+import SubNav from '../components/SubNav';
+
 import LatestActions from '../actions/LatestActions';
 import LatestStore from '../stores/LatestStore';
 
@@ -10,6 +12,22 @@ export default class Latest extends React.Component {
         super();
         this.state = {
             articles: LatestStore.getLatest(),
+
+            subnavLinks: [
+                {
+                    link: 'science',
+                    title: 'Science',
+                }, {
+                    link: 'politics',
+                    title: 'Politics',
+                }, {
+                    link: 'health',
+                    title: 'Health',
+                }, {
+                    link: 'world',
+                    title: 'World',
+                }
+            ],
         };
     }
 
@@ -22,14 +40,22 @@ export default class Latest extends React.Component {
     }
 
     render() {
-        const { articles } = this.state;
+        const { articles, subnavLinks } = this.state;
 
         const ArticleComponents = articles.map((article) => {
             return <Article key={article.id} {...article}/>;
         });
 
+        const subnavHeading = 'Latest News';
+
+        const links = subnavLinks.map((link) => {
+            return <li><Link to={link.link}> {link.title} </Link></li>;
+        });
+
         return(
             <div>
+                <SubNav heading={subnavHeading} links={links} />
+            {/* OLD COMPONENT
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar sub-nav">
@@ -56,7 +82,7 @@ export default class Latest extends React.Component {
                             </div>
                         </nav>
                     </div>
-                </div>
+                </div> */}
                 <div class="row is-flex">{ArticleComponents}</div>
             </div>
         );
