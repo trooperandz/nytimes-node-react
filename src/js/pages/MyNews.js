@@ -1,27 +1,28 @@
 import React from 'react';
 
 import Article from '../components/Article';
+import ArticleStore from '../stores/ArticleStore';
 
 export default class MyNews extends React.Component {
-    render() {
-        //const { article } = params;
+    constructor() {
+        super();
+        this.state = {
+            articles: ArticleStore.getAll(),
+        };
+    }
 
-        const Articles = [
-            'Article About Tesla',
-            'A Cool Article',
-            'They B\'s Be Travellin\'',
-            'Article Of Greatness',
-            'Article Of They Worlds',
-            'It Is Time To Read',
-            'Something Really Cool',
-            'Century\'s Article',
-        ].map((title, i) => <Article key={i} title={title}/>);
+    render() {
+        const { articles } = this.state;
+
+        const ArticleComponents = articles.map((article) => {
+            return <Article key={article.id} {...article}/>;
+        });
 
         return(
             <div>
                 <h1>My Saved News</h1>
                 <legend></legend>
-                <div class="row">{Articles}</div>
+                <div class="row is-flex">{ArticleComponents}</div>
             </div>
         );
     }
