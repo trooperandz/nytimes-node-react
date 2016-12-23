@@ -2,15 +2,30 @@ import React from 'react';
 import { Link } from 'react-router';
 
 import Article from '../components/Article';
+import SubNav from '../components/SubNav';
+
 import MyNewsActions from '../actions/MyNewsActions';
 import MyNewsStore from '../stores/MyNewsStore';
 
 export default class MyNews extends React.Component {
     constructor() {
         super();
+
         this.state = {
             articles: MyNewsStore.getFavorites(),
         };
+
+        this.subnavHeading = 'My Saved News';
+
+        this.subnavLinks = [
+            {
+                link: 'myScience',
+                title: 'My Science',
+            }, {
+                link: 'myPolitics',
+                title: 'My Politics',
+            }
+        ];
     }
 
     render() {
@@ -20,9 +35,14 @@ export default class MyNews extends React.Component {
             return <Article key={article.id} {...article}/>;
         });
 
+        const links = this.subnavLinks.map((link, i) => {
+            return <li key={i}> <Link to={link.link}>{link.title}</Link> </li>;
+        });
+
         return(
             <div>
-                {/*TODO: place in component*/}
+                <SubNav heading={this.subnavHeading} links={links} />
+                {/*TODO: place in component
                 <div class="row">
                     <div class="col-lg-12">
                         <nav class="navbar sub-nav">
@@ -43,7 +63,7 @@ export default class MyNews extends React.Component {
                             </div>
                         </nav>
                     </div>
-                </div>
+                </div>*/}
                 <div class="row is-flex">{ArticleComponents}</div>
             </div>
         );
