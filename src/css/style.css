@@ -90,8 +90,12 @@ a:hover, a:visited, a:focus, a:active {
 
 .article h4 {
     font-weight: bold;
-    color: #4e5d6c;
+    color: gray;
     /*font-family: 'Kumar One', serif;*/
+}
+
+.article-date {
+    margin-bottom: 0;
 }
 
 footer {
