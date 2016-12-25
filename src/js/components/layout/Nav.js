@@ -3,7 +3,8 @@ import { IndexLink, Link } from 'react-router';
 
 export default class Nav extends React.Component {
     constructor() {
-        super()
+        super();
+
         // Set initial state of navbar to collapsed
         this.state = {
             collapsed: true

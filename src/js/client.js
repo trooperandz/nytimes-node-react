@@ -11,7 +11,7 @@ import Search from './pages/Search';
 import Settings from './pages/Settings';
 
 const app = document.getElementById('app');
-// <Route path="search" component={Search}></Route>
+
 ReactDOM.render(
     <Router history={hashHistory}>
         <Route path="/" component={Layout}>
