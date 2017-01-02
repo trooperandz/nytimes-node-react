@@ -33,6 +33,7 @@ nav a {
 }
 
 #search-container label {
+/*#search-container a {*/
     display: flex;
     justify-content: space-around;
     align-content: center;
@@ -60,6 +61,10 @@ nav a {
 #search-container input:focus {
     webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(0,0,0,0.6);
     box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(0,0,0,0.6);
+}
+
+#search-btn:hover {
+    cursor: pointer;
 }
 
 .row.is-flex {
@@ -90,8 +95,10 @@ a:hover, a:visited, a:focus, a:active {
 
 .article h4 {
     font-weight: bold;
+}
+
+.article p {
     color: gray;
-    /*font-family: 'Kumar One', serif;*/
 }
 
 .article-date {

@@ -11,7 +11,7 @@ export default class Latest extends React.Component {
         super();
         this.getLatest = this.getLatest.bind(this);
         this.state = {
-            articles: LatestStore.getLatest(),
+            articles: [],
         };
 
         this.subnavHeading = 'Latest News';
@@ -34,12 +34,13 @@ export default class Latest extends React.Component {
     }
 
     componentWillMount() {
-        LatestStore.on('change', this.getLatest);
+       LatestStore.on('change', this.getLatest);
     }
-
+    /*
     componentWillUnmount() {
         LatestStore.removeListener('change', this.getLatest);
-    }
+        //LatestStore.removeListener('change');
+    }*/
 
     getLatest() {
         this.setState({

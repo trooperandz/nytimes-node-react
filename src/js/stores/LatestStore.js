@@ -5,7 +5,9 @@ import dispatcher from '../dispatcher';
 class LatestStore extends EventEmitter {
     constructor() {
         super();
+        this.articles = [];
         //this.articles = this.getLatest();
+        /*
         this.articles = [
             {
               "id": "07-48737223469",
@@ -23,7 +25,7 @@ class LatestStore extends EventEmitter {
               "url": "https://is.gd/nunc/nisl/duis.png",
               "abstract": "Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam."
             },
-        ];
+        ];*/
     }
 
     getLatest() {

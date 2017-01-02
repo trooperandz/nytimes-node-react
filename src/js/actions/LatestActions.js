@@ -1,13 +1,16 @@
 import dispatcher from '../dispatcher';
 
 import axios from 'axios';
-
+// TODO: put api key into globals module
 const apiKey = 'ac491f7af6e242369578f53694affc61';
 
 export function getLatestBySection(section) {
     axios.get('https://api.nytimes.com/svc/topstories/v2/' + section + '.json?api-key=' + apiKey).then(response => {
         console.log('api-response: ' , response.data.results);
-        dispatcher.dispatch({ type: 'GET_LATEST_BY_SECTION', data: response.data.results });
+        dispatcher.dispatch({
+            type: 'GET_LATEST_BY_SECTION',
+            data: response.data.results,
+        });
     });
 }
 

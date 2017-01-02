@@ -4,27 +4,55 @@ import { Link } from 'react-router';
 import Article from '../components/Article';
 import SubNav from '../components/SubNav';
 
-import SearchActions from '../actions/SearchActions';
+import * as SearchActions from '../actions/SearchActions';
 import SearchStore from '../stores/SearchStore';
 
 export default class Search extends React.Component {
     constructor() {
         super();
+        this.getLatest = this.getLatest.bind(this);
 
         this.state = {
             articles: [],
+            value: '',
         }
+
+        this.handleChange = this.handleChange.bind(this);
+
+        this.getSearchResults = this.getSearchResults.bind(this);
 
         this.subnavHeading = 'News Search';
 
         this.subnavLinks = [];
     }
 
+    componentWillMount() {
+        SearchStore.on('change', this.getLatest);
+    }
+
+    getLatest() {
+        this.setState({
+            articles: SearchStore.getLatest(),
+        })
+    }
+
+    handleChange(e) {
+        this.setState({
+            value: e.target.value,
+        });
+        console.log('value state: ' + this.state.value);
+    }
+
+    getSearchResults(e) {
+        e.preventDefault();
+        SearchActions.newsSearch(this.state.value);
+    }
+
     render() {
         const { articles } = this.state;
 
-        const ArticleComponents = articles.map((article) => {
-            return <Article key={article.id} {...article}/>
+        const ArticleComponents = articles.map((article, i) => {
+            return <Article key={i} {...article} />;
         });
 
         const links = [];
@@ -32,31 +60,17 @@ export default class Search extends React.Component {
         return(
             <div>
                 <SubNav heading={this.subnavHeading} links={links} />
-                {/*TODO: place in component
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar sub-nav">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <a class="navbar-brand" href="#">Latest News</a>
-                                </div>
-                                <div id="navbar" class={"navbar-collapse navbar-right "}>
-                                    <ul class="nav navbar-nav">
 
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>*/}
                 <div class="row">
                     <div class="col-xs-12 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" id="search-container">
                         <label> <span class="glyphicon glyphicon-search"></span>
-                            <input class="form-control" placeholder="Search for something interesting..." />
+                            <input class="form-control" value={this.state.value} onChange={this.handleChange} placeholder="Search for something interesting..." />
+                            <span class="text-info" id="search-btn" onClick={e => this.getSearchResults(e)}>Go&nbsp;&raquo;</span>
                         </label>
                     </div>
                 </div>
-                <div class="row is-flex">{ArticleComponents}</div>
+
+                <div class="article row is-flex">{ArticleComponents}</div>
             </div>
         );
     }

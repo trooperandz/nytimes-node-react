@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
 import Bootstrap from './vendor/bootstrap-without-jquery.min';
+import jquery from 'jquery';
 
 import Layout from './pages/Layout';
 import Latest from './pages/Latest';

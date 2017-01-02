@@ -42,28 +42,7 @@ export default class MyNews extends React.Component {
         return(
             <div>
                 <SubNav heading={this.subnavHeading} links={links} />
-                {/*TODO: place in component
-                <div class="row">
-                    <div class="col-lg-12">
-                        <nav class="navbar sub-nav">
-                            <div class="container-fluid">
-                                <div class="navbar-header">
-                                    <a class="navbar-brand" href="#">My Saved News</a>
-                                </div>
-                                <div id="navbar" class={"navbar-collapse navbar-right "}>
-                                    <ul class="nav navbar-nav">
-                                        <li>
-                                            <Link to="">Custom Cat</Link>
-                                        </li>
-                                        <li>
-                                            <Link to="">Custom Cat</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                    </div>
-                </div>*/}
+
                 <div class="row is-flex">{ArticleComponents}</div>
             </div>
         );
